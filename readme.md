@@ -10,8 +10,7 @@ A minimal boilerplate for building a backend server using **Node.js**, **Express
 - [Express.js](https://expressjs.com/)
 - [TypeScript](https://www.typescriptlang.org/)
 - MongoDB (Mongoose)
-- Dotenv
-- Nodemon
+- [ts-node-dev](https://www.npmjs.com/package/ts-node-dev)
 
 ---
 
@@ -53,6 +52,10 @@ npm i --save-dev @types/express
 import express, { Application, Request, Response } from 'express';
 
 const app: Application = express();
+
+app.get('/', (req: Request, res: Response) => {
+  res.send('Hello World!, Welcome to Note App')
+})
 
 export default app;
 ```
