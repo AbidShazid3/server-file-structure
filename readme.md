@@ -43,7 +43,62 @@ tsc --init
 "outDir": "./dist/",
 ```
 
-### 4️⃣(Optional) Install TypeScript Globally
+### 4️⃣ Install TypeScript Globally
 ```bash
 npm install -g typescript
+npm i --save-dev @types/express
+```
+### app.ts file
+```bash
+import express, { Application, Request, Response } from 'express';
+
+const app: Application = express();
+
+export default app;
+```
+
+### server.ts file
+```bash
+import { Server } from 'http';
+import app from './app';
+
+let server: Server;
+const port = 5000;
+
+async function main() {
+    try {
+        server = app.listen(port, () => {
+            console.log(`Example app listening on port ${port}`)
+        })
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+//must call the main function to run server
+main(); 
+
+```
+
+## ✅ What does ts-node-dev do?
+- Combines ts-node (TypeScript execution) and nodemon (auto-restart on changes).
+- No need to manually run tsc and then node dist/index.js.
+- Much faster development workflow.
+
+### 📦 Installation in devDependencies
+```bash
+npm install --save-dev ts-node-dev
+```
+
+### 🧾 Update Your package.json Scripts
+#### Add this to your scripts section:
+```bash
+"scripts": {
+  "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+}
+```
+
+### 🏁 Run the Dev Server
+```bash
+npm run dev
 ```
