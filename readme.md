@@ -105,3 +105,26 @@ npm install --save-dev ts-node-dev
 ```bash
 npm run dev
 ```
+
+### 🏁 MongoDB Connection Example (with mongoose.connect)
+#### import mongoose
+```bash
+async function main() {
+    try {
+        await mongoose.connect('mongodb+srv://mongodb:<your_username>:<your_password>@cluster0.v0031py.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
+
+// 🔔 Your MongoDB connect URL. Use this connection string in your application. Copy the URL and replace <your_username> and <your_password>.
+
+        console.log("Connected to MongoDB Using Mongoose!!");
+        server = app.listen(port, () => {
+            console.log(`App is listening on port ${port}`)
+        })
+    } catch (error) {
+        console.log(error);
+    }
+}
+```
+
+### ✅ Option 2: Explain outside the code block
+> 🔹 **Note**: Replace `<your_username>` and `<your_password>` in the connection string with your actual MongoDB Atlas credentials.
+> Use this connection string in your application. **Copy it from MongoDB Atlas Dashboard**.
